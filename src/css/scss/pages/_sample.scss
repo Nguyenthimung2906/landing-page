@@ -1,0 +1,126 @@
+#content {
+    padding: 20px;
+}
+
+i {
+    display: inline-block;
+}
+
+.block-element {
+    position: relative;
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-bottom:100px;
+
+    strong {
+        display: block;
+        font-size: 20px;
+        line-height: 35px;
+        margin-bottom: 15px;
+    }
+}
+
+.sp-sample-01 {
+    @include sp-normal('fork')
+}
+
+.sp-sample-02 {
+    @include sp-retina('fork')
+}
+
+.svg-sprite-sample-01{
+  @include useSvg-icons('twitter', 30px)
+}
+
+.svg-sprite-sample-02{
+  @include useSvg-icons('window', 30px)
+}
+
+.svg-sprite-sample-03{
+  @include useSvg-icons('youtube', 30px)
+}
+
+.svg-inline-sample-01 {
+  width: 30px;
+  height: 30px;
+  background: svg-load('../../img/svg/twitter.svg') center / 100% no-repeat;
+  &:hover {
+    background-image: svg-load('../../img/svg/twitter.svg', fill=#55acee);
+  }
+}
+
+.svg-inline-sample-02 {
+  width: 30px;
+  height: 30px;
+  background: svg-load('../../img/svg/window.svg') center / 100% no-repeat;
+  &:hover {
+    background-image: svg-load('../../img/svg/window.svg', fill=#7cbb00, stroke=#ffbb00);
+  }
+}
+
+.svg-inline-sample-03 {
+  width: 30px;
+  height: 30px;
+  background: svg-load('../../img/svg/youtube.svg') center / 100% no-repeat;
+  &:hover {
+    background-image: svg-load('../../img/svg/youtube.svg', fill=#f00);
+  }
+}
+
+.vw-sample-text {
+    background-color: lightcoral;
+    color: #fff;
+    @include vw-font-style-pc(50, bold, 50px);
+    padding: 10px;
+}
+
+.flexbox-sample {
+    @include flexbox;
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-content(center);
+    height: 250px;
+    background-color: plum;
+}
+
+.flex-item-sample1 {
+    width: 100px;
+    height: 100px;
+    @include flex(1 1 auto);
+    @include order(2);
+    background-color: lightblue;
+}
+
+.flex-item-sample2 {
+    width: 200px;
+    height: 100px;
+    @include flex(0 0 auto);
+    @include order(1);
+    background-color: blue;
+}
+
+.ellipsis-multi-sample {
+    @include ellipsis(2);
+    @include font-style(15, false, 20px);
+}
+
+.ellipsis-sample {
+    max-width: 500px;
+    margin-top: 10px;
+    @include ellipsis(1);
+    @include font-style(12, bold, 1.5);
+}
+
+@include breakpoint(tablet) {
+    .vw-sample-text {
+        background-color: lightgreen;
+        @include vw-font-style-tb(50, 400, 1.5);
+    }
+}
+
+@include breakpoint(mobile) {
+    .vw-sample-text {
+        background-color: lightsalmon;
+        @include vw-font-style-mo(25, false, 30px);
+    }
+}
