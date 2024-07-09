@@ -1,4 +1,5 @@
 ; (function (win, $) {
+    
 
     // Header
     var  $gnbItem = $(".gnb_item"),
@@ -10,15 +11,11 @@
     $gnbItem.click(handleClick);
     $briefItem.click(handleClick)
 
+    // 
+
     $(function () {
-        sample2.init();
-        sample3.init();
     });
 
     $(win).on('load', function () {
-        sample.init();
-        sample4();
-        sample5();
-        $('body').sample6();
     });
 })(window, window.jQuery);

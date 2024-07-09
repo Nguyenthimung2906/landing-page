@@ -50,17 +50,7 @@
 		<span class="label_date new"></span> NEW <span class="label_date update"></span> UPDATE
 	</section>
 	<section class="section_list">
-		<h2 id="tab_doc" class="sec_h">Document</h2>
-		<ul><%
-			var dfileList = dfiles;
-			for(var i=0 ; i < dfileList.length; i++){ %>
-			<li>
-				<a href="views/<%= dfileList[i].name %>"><%= dfileList[i].listTitle %> / <span class="filename"><%= dfileList[i].name %></span></a>
-				<% if (dfileList[i].splitStatus) { %>
-				<span class="label_date <%= dfileList[i].splitStatus %>"><%= dfileList[i].splitStatusDate %></span>
-				<% } %>
-			</li><%} %>
-		</ul><%
+		<%
 		for (var i=0; i < 100 ; i++){
 			var categoryNum = String("0" + i).slice(-2);
 			var listCount = 0;
