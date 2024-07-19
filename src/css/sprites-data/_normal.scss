@@ -1,11 +1,29 @@
 $normal-vars: (
+	'btn_next': (
+		offset-x: -36px,
+		offset-y: -36px,
+		width: 24px,
+		height: 24px,
+		total-width: 96px,
+		total-height: 96px,
+		imageSrc: '../img/normal.png'
+	),
+	'btn_prev': (
+		offset-x: -72px,
+		offset-y: 0px,
+		width: 24px,
+		height: 24px,
+		total-width: 96px,
+		total-height: 96px,
+		imageSrc: '../img/normal.png'
+	),
 	'fork': (
 		offset-x: 0px,
 		offset-y: 0px,
 		width: 32px,
 		height: 32px,
-		total-width: 68px,
-		total-height: 68px,
+		total-width: 96px,
+		total-height: 96px,
 		imageSrc: '../img/normal.png'
 	),
 	'github': (
@@ -13,8 +31,26 @@ $normal-vars: (
 		offset-y: 0px,
 		width: 32px,
 		height: 32px,
-		total-width: 68px,
-		total-height: 68px,
+		total-width: 96px,
+		total-height: 96px,
+		imageSrc: '../img/normal.png'
+	),
+	'icon_close': (
+		offset-x: -72px,
+		offset-y: -28px,
+		width: 24px,
+		height: 24px,
+		total-width: 96px,
+		total-height: 96px,
+		imageSrc: '../img/normal.png'
+	),
+	'icon_menu': (
+		offset-x: 0px,
+		offset-y: -72px,
+		width: 24px,
+		height: 24px,
+		total-width: 96px,
+		total-height: 96px,
 		imageSrc: '../img/normal.png'
 	),
 	'twitter': (
@@ -22,14 +58,14 @@ $normal-vars: (
 		offset-y: -36px,
 		width: 32px,
 		height: 32px,
-		total-width: 68px,
-		total-height: 68px,
+		total-width: 96px,
+		total-height: 96px,
 		imageSrc: '../img/normal.png'
 	),
 );
 $normal-origin: (
-  total-width: 68px,
-  total-height: 68px,
+  total-width: 96px,
+  total-height: 96px,
   imageSrc: '../img/normal.png'
 );
 

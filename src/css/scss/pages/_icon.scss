@@ -1,0 +1,15 @@
+.btn_prev {
+  @include sp-normal('btn_prev')
+}
+
+.btn_next {
+  @include sp-normal('btn_next')
+}
+
+.icon_menu {
+  @include sp-normal('icon_menu')
+}
+
+.icon_close {
+  @include sp-normal('icon_close')
+}

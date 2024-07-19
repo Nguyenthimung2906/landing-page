@@ -8,11 +8,35 @@ button {
   font-weight: 400;
 }
 
+.img_pc,
+.img_mo {
+  display: inline-block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.only_pc {
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.only_mo {
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    display: block;
+  }
+
+  @media screen and (min-width: 1201px) {
+    display: none;
+  }
+}
+
 // Header 
 
 .section_inner {
   max-width: 1440px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .header {
@@ -20,7 +44,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 87px 0 112px;
+    padding: 10px 87px 10px 112px;
   }
 }
 
@@ -32,22 +56,29 @@ button {
   display: inline-block;
 }
 
-.img_pc {
-  display: inline-block;
-  max-width: 100%;
-  object-fit: cover;
-}
-
 .gnb {
   &_list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      // display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      padding: 7.5rem 1.5rem 2.5rem 4rem;
+      background-color: var(--first-color-dark);
+      transition: left 0.4s;
+    }
   }
 
   &_link {
     display: block;
-    padding: 25px 25px;
+    padding: 15px 25px;
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
@@ -66,4 +97,10 @@ button {
   font-weight: 500;
   line-height: 60px;
   text-align: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+  }
 }
