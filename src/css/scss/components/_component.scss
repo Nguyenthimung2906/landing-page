@@ -45,6 +45,10 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 10px 87px 10px 112px;
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      padding: 26px 44px 26px 40px;
+    }
   }
 }
 
@@ -102,5 +106,15 @@ button {
     font-size: 30px;
     font-weight: 500;
     line-height: 40px;
+  }
+}
+
+.icon  {
+
+}
+
+.nav {
+  &_toggel {
+    font-size: 0;
   }
 }

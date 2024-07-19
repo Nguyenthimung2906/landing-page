@@ -20,37 +20,26 @@
     navLink = document.querySelectorAll(".nav__link"),
     header = document.querySelector(".header")
 
-  if (navToggel) {
-    navToggel.addEventListener("click", function () {
-      navMenu.classList.add('show__menu')
-    })
-  }
+  $(document).ready(function () {
+    navToggel.on("click", function () {
+      $(".gnb_list").addClass("active");
+    });
 
-  if (navClose) {
-    navClose.addEventListener("click", function () {
-      navMenu.classList.remove('show__menu')
-    })
-  }
-
-  navLink.forEach(function (element) {
-    element.addEventListener("click", function () {
-      navMenu.classList.remove('show__menu')
-    })
+    navClose.on("click", function () {
+      $(".gnb_list").removeClass("active");
+    });
   });
   // Swiper Work
-  var swiperInstance = null; // Biến lưu trữ Swiper instance
+  var swiperInstance = null;
 
-  // Hàm để khởi tạo hoặc cập nhật Swiper
   function initOrUpdateSwiper() {
     var windowWidth = window.innerWidth;
 
-    // Hủy bỏ Swiper hiện tại nếu đã tồn tại
     if (swiperInstance !== null) {
       swiperInstance.destroy();
       swiperInstance = null;
     }
 
-    // Tạo Swiper cho PC nếu kích thước lớn hơn 768px
     if (windowWidth > 768) {
       swiperInstance = new Swiper(".mySwiper", {
         slidesPerView: "auto",
@@ -65,9 +54,7 @@
           prevEl: ".swiper-button-prev",
         },
       });
-    }
-    // Tạo Swiper cho Mobile nếu kích thước nhỏ hơn hoặc bằng 768px
-    else {
+    } else {
       swiperInstance = new Swiper(".swiper_mo", {
         slidesPerView: "auto",
         spaceBetween: 32,
@@ -85,13 +72,22 @@
     }
   }
 
-  // Gọi hàm khi tải trang
   initOrUpdateSwiper();
 
-  // Gọi lại hàm khi resize cửa sổ
   window.addEventListener('resize', function () {
-    initOrUpdateSwiper(); // Khởi tạo hoặc cập nhật lại Swiper khi resize
+    initOrUpdateSwiper();
   });
+
+  // 
+  // $(document).ready(function () {
+  //   $(".nav_toggle").on("click", function () {
+  //     $(".gnb_list").addClass("active");
+  //   });
+
+  //   $(".nav__close").on("click", function () {
+  //     $(".gnb_list").removeClass("active");
+  //   });
+  // });
 
   $(function () {});
 
