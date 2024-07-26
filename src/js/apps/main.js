@@ -3,7 +3,12 @@
 
   // Header
   var $gnbItem = $(".gnb_item"),
-    $briefItem = $(".brief_item")
+    $briefItem = $(".brief_item"),
+    $gnbList = $(".gnb_list"),
+    $gnbToggel = $(".gnb_toggel"),
+    $dimmed = $(".dimmed"),
+    $wrap = $('.wrap'),
+    $win = $(window)
   function handleClick() {
     $(this).addClass('is_click').siblings().removeClass('is_click')
   }
@@ -11,89 +16,61 @@
   $gnbItem.click(handleClick);
   $briefItem.click(handleClick)
 
-  // Nav Toggel
 
-  const navMenu = document.querySelector(".nav__menu"),
-    navToggel = document.querySelector(".nav__toggel"),
-    navClose = document.querySelector(".nav__close"),
-    navLink = document.querySelectorAll(".nav__link"),
-    header = document.querySelector(".header")
+  // click button
+  var $btnLink = $(".btn")
 
-    $(document).ready(function () {
-      navToggel.on("click", function () {
-        $(".gnb_list").addClass("active");
-      });
-    
-      navClose.on("click", function () {
-        $(".gnb_list").removeClass("active");
-      });
-    });
+  $btnLink.click(function() {
+    $btnLink.addClass("click_btn")
+  })
+
   // Swiper Work
-  var swiperInstance = null;
 
-  function initOrUpdateSwiper() {
-    var windowWidth = window.innerWidth;
-  
-    if (swiperInstance !== null) {
-      swiperInstance.destroy();
-      swiperInstance = null;
-    }
-  
-    if (windowWidth > 768) {
-      swiperInstance = new Swiper(".mySwiper", {
-        slidesPerView: "auto",
-        spaceBetween: 32,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          dynamicBullets: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+  swiper = new Swiper(".mySwiper", {
+    slidesPerView: "auto",
+    loop: true,
+    // spaceBetween: 32,
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  // Nav Toggle
+
+  function showNav() {
+    $gnbList.toggleClass('show_menu')
+    $wrap.addClass('is_hidden')
+    $dimmed.toggle();
+    if ($gnbList.hasClass('show_menu')) {
+      $gnbToggel.find("i").removeClass('icon_menu').addClass('icon_close');
     }
     else {
-      swiperInstance = new Swiper(".swiper_mo", {
-        slidesPerView: "auto",
-        spaceBetween: 32,
-        initialSlide: 1,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          dynamicBullets: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+      $gnbToggel.find("i").removeClass('icon_close').addClass('icon_menu');
+      $gnbToggel.addClass("nav_close")
     }
   }
-  
-  initOrUpdateSwiper();
-  
-  window.addEventListener('resize', function() {
-    initOrUpdateSwiper();
-  });
 
+  function closeDimmed() {
+    $gnbList.removeClass('show_menu')
+    $wrap.removeClass('is_hidden')
+    $dimmed.hide()
+    $gnbToggel.find("i").removeClass('icon_close').addClass('icon_menu');
+  }
 
-  // 
-  // $(document).ready(function () {
-  //   $(".nav_toggle").on("click", function () {
-  //     $(".gnb_list").addClass("active");
-  //   });
-  
-  //   $(".nav__close").on("click", function () {
-  //     $(".gnb_list").removeClass("active");
-  //   });
-  // });
-  
-  
+  $gnbToggel.click(showNav);
+  $dimmed.click(closeDimmed);
 
-  $(function () {
-  });
+  $win.resize(function () { 
+    if ($win.width() > 1200) {
+      closeDimmed();
+    }
+  })
+
 
   $(win).on('load', function () {
   });
