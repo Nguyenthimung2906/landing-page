@@ -44,7 +44,7 @@
 
   function showNav() {
     $gnbList.toggleClass('show_menu')
-    $wrap.addClass('is_hidden')
+    $wrap.toggleClass('is_hidden')
     $dimmed.toggle();
     if ($gnbList.hasClass('show_menu')) {
       $gnbToggel.find("i").removeClass('icon_menu').addClass('icon_close');
