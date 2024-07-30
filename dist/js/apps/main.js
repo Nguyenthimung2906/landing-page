@@ -2,38 +2,35 @@
 (function (win, $) {
 
   // Header
-  var $gnbItem = $(".gnb_item"),
-    $briefItem = $(".brief_item"),
-    $gnbList = $(".gnb_list"),
-    $gnbToggel = $(".gnb_toggel"),
+  var $gnbList = $(".gnb_list"),
+    $gnbToggle = $(".gnb_toggle"),
     $dimmed = $(".dimmed"),
     $wrap = $('.wrap'),
     $win = $(window)
 
-  function handleClick() {
-    $(this).addClass('is_click').siblings().removeClass('is_click')
-  }
-
-  $gnbItem.click(handleClick);
-  $briefItem.click(handleClick)
-
-  // click button
-  var $btnLink = $(".btn")
-
-  $btnLink.click(function () {
-    $btnLink.addClass("click_btn")
-  })
+  // header
+  $(document).ready(function () {
+    if (window.location.hash) {
+      var target = $(window.location.hash);
+      window.history.replaceState(null, null, window.location.pathname);
+      $('html, body').animate({
+        scrollTop: $('#header').offset().top
+      }, 100);
+    }
+  });
 
   // Swiper Work
-
   swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
     loop: true,
-    // spaceBetween: 32,
     pagination: {
       el: ".swiper-pagination",
       dynamicBullets: true,
     },
+    // pagination: {
+    //   el: ".swiper-pagination",
+    //   clickable: true,
+    // },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -47,10 +44,10 @@
     $wrap.toggleClass('is_hidden')
     $dimmed.toggle();
     if ($gnbList.hasClass('show_menu')) {
-      $gnbToggel.find("i").removeClass('icon_menu').addClass('icon_close');
+      $gnbToggle.find("i").removeClass('icon_menu').addClass('icon_close');
     } else {
-      $gnbToggel.find("i").removeClass('icon_close').addClass('icon_menu');
-      $gnbToggel.addClass("nav_close")
+      $gnbToggle.find("i").removeClass('icon_close').addClass('icon_menu');
+      $gnbToggle.addClass("nav_close")
     }
   }
 
@@ -58,10 +55,10 @@
     $gnbList.removeClass('show_menu')
     $wrap.removeClass('is_hidden')
     $dimmed.hide()
-    $gnbToggel.find("i").removeClass('icon_close').addClass('icon_menu');
+    $gnbToggle.find("i").removeClass('icon_close').addClass('icon_menu');
   }
 
-  $gnbToggel.click(showNav);
+  $gnbToggle.click(showNav);
   $dimmed.click(closeDimmed);
 
   $win.resize(function () {
@@ -69,6 +66,16 @@
       closeDimmed();
     }
   })
+
+  function handleMenuItemClick(event) {
+    var target = $(event.target);
+
+    if (target.is('a')) {
+      closeDimmed();
+    }
+  }
+
+  $gnbList.on('click', 'a', handleMenuItemClick);
 
   $(win).on('load', function () {});
 })(window, window.jQuery);
