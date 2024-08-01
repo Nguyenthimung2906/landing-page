@@ -1,6 +1,4 @@
 ; (function (win, $) {
-
-
   // Header
   var $gnbList = $(".gnb_list"),
     $gnbToggle = $(".gnb_toggle"),
@@ -22,21 +20,32 @@
   // Swiper Work
   swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
-    loop: true,
+    spaceBetween: 24,
     pagination: {
       el: ".swiper-pagination",
-      dynamicBullets: true,
+      clickable: true,
     },
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    breakpoints: {
+      375: {
+        spaceBetween: 24,
+      },
+      376: {
+        spaceBetween: 32,
+      },
+      768: {
+        spaceBetween: 32,
+        loop: true,
+      },
+      1024: {
+        spaceBetween: 32,
+      }
+    },
   });
-
+  
 
   // Nav Toggle
 
