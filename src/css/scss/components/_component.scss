@@ -76,6 +76,13 @@ i {
 }
 
 .header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // background-color: #fff;
+  // z-index: 2000;
+
   .section_header {
     display: flex;
     justify-content: space-between;
@@ -162,11 +169,11 @@ i {
       opacity: 0;
       white-space: nowrap;
       content: attr(data-text);
-      
-    @media screen and (max-width: 1200px) {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
+
+      @media screen and (max-width: 1200px) {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
     }
 
     &:hover {

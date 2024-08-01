@@ -83,16 +83,6 @@
     }
   }
 
-  &_emphasize {
-    font-weight: 700;
-    line-height: 30px;
-    color: var(--color-text);
-
-    @media screen and (max-width: 375px) {
-      line-height: 24px;
-    }
-  }
-
   &_image {
     width: 47.7%;
     margin-left: 44px;
@@ -500,11 +490,11 @@
     }
   }
 
-  &_name {
-    // display: -webkit-box;
-    // overflow: hidden;
-    // -webkit-line-clamp: 1;
-    // -webkit-box-orient: vertical;
+  &_title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     font-size: 18px;
     font-weight: 700;
     line-height: 22.41px;
@@ -881,7 +871,7 @@
       }
     }
 
-    &_name {
+    &_title {
       display: inline-block;
       font-size: 18px;
       font-weight: 500;
